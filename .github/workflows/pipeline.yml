@@ -11,6 +11,6 @@ jobs:
           java-version: 11
       - name: Install arch-as-code
         run: |
-          mkdir -p ~/arch-as-code && curl -s https://api.github.com/repos/trilogy-group/arch-as-code/releases/latest |  grep "browser_download_url" | cut -d : -f 2,3 | tr -d \" | xargs curl -L | tar -z --strip-components 1 -x -C ~/arch-as-code ~/arch-as-code/bin/arch-as-code -V
+          mkdir -p ~/arch-as-code && curl -s https://api.github.com/repos/trilogy-group/arch-as-code/releases/latest |  grep "browser_download_url" | cut -d : -f 2,3 | tr -d \" | xargs curl -L | tar zx --strip-components 1 -C ~/arch-as-code ~/arch-as-code/bin/arch-as-code -V
       - name: Validate
         run: ~/arch-as-code/bin/arch-as-code validate .
